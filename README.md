@@ -43,6 +43,7 @@ spec:
           labels:
             job: k8s-cluster-etcd-backup-cronjob
         spec:
+          restartPolicy: OnFailure
           volumes:
             - name: etcd-certs
               hostPath:
