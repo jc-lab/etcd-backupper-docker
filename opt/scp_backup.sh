@@ -3,7 +3,6 @@
 mkdir -p $HOME/.ssh/
 
 PRIV_KEY_FILE="/root/.ssh/default_private_key"
-echo "" >> $PRIV_KEY_FILE
 
 if [[ -z "$BACKUP_FILE" ]]; then
 	echo "No provided BACKUP_FILE"
@@ -41,6 +40,7 @@ else
 	exit 1
 fi
 
+echo "" >> $PRIV_KEY_FILE
 scp -i "$PRIV_KEY_FILE" $BACKUP_FILE $REMOTE_USER@$REMOTE_HOST:$REMOTE_PATH
 rc=$?
 
